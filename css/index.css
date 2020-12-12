@@ -3,6 +3,10 @@ body {
   background-color: #f5f5f5;
 }
 
+.table {
+  background: #f3f3f3;
+}
+
 /* Login form */
 
 .login-form {
