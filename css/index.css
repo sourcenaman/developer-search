@@ -80,3 +80,20 @@ body {
   margin-top: 50px;
   padding: 30px;
 }
+
+@media screen and (max-width: 480px) {
+  .navbar-icon {
+    margin: 5px;
+    font-size: 18px;
+  }
+
+  .navbar-text {
+    margin: auto 0px;
+    font-size: 18px;
+  }
+
+  .navbar-btn {
+    font-size: 20px;
+    margin-left: auto;
+  }
+}
