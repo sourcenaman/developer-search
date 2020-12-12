@@ -7,6 +7,21 @@ body {
   background: #f3f3f3;
 }
 
+.data-update,
+.data-delete {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.data-delete {
+  color: red;
+}
+
+.data-update {
+  color: blue;
+}
+
 /* Login form */
 
 .login-form {
@@ -30,6 +45,13 @@ body {
 .login-form-error {
   font-size: 12px;
   color: red;
+}
+
+.login-form i {
+  cursor: pointer;
+  position: relative;
+  top: -40px;
+  right: -108px;
 }
 
 /* Navigation bar */

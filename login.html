@@ -26,7 +26,8 @@
     <h1>Please Login</h1>
     <input type="text" id="username" class="form-control login-form-input" placeholder="Enter username" />
     <input type="password" id="password" class="form-control login-form-input" placeholder="Enter password" />
-    <button type="button" class="btn btn-primary login-form-submit" onclick="login()">Submit</button>
+    <i class="far fa-eye" id="togglePassword" onclick="chagePasswordVisibility()" onkeyup="chagePasswordVisibility()" tabindex="0"></i>
+    <button type="submit" class="btn btn-primary login-form-submit" onclick="login()">Submit</button>
     <span class="login-form-error" id="error-message"></span>
 </div>
 </body>

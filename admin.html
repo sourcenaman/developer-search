@@ -1,49 +1,158 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/c0fb98db50.js" crossorigin="anonymous"></script>
 
     <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script src="js/index.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <i class="navbar-brand fas fa-search navbar-icon"></i>
-        <p class="navbar-text">Developer Search</p>
-        <button class="btn navbar-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Log Out</button>
+      <i class="navbar-brand fas fa-search navbar-icon"></i>
+      <p class="navbar-text">Developer Search</p>
+      <button class="btn navbar-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i>Log Out</button>
     </nav>
     <section class="main-content">
-        <div class="input-group mb-3">
-            <select class="custom-select" id="searchselect" onchange=searchSelect(this)>
-                <option selected name="Id" name="Id">Id</option>
-                <option value="first_name">First Name</option>
-                <option value="last_name">Last Name</option>
-                <option value="email">Email Id</option>
-                <option value="contact_no">Contact No.</option>
-            </select>
-            <input type="text" class="form-control" id="search-input" placeholder="Search developer by Id">
-            <button class="btn btn-outline-secondary" type="button" onclick=search()>Search</button>
-        </div>
-        <span id="table"></span>
+      <div class="input-group mb-3">
+        <select class="custom-select" id="searchselect" onchange="searchSelect(this)">
+          <option name="Id" name="Id">Id</option>
+          <option selected value="first_name">First Name</option>
+          <option value="last_name">Last Name</option>
+          <option value="email">Email Id</option>
+          <option value="contact_no">Contact No.</option>
+        </select>
+        <input type="text" class="form-control" id="search-input" placeholder="Search developer by First Name" />
+        <button class="btn btn-outline-secondary" type="submit" onclick="search()">Search</button>
+        <button class="btn btn-outline-success" type="submit" data-toggle='modal' data-target='#myModal2'><i class="fas fa-plus"></i></button>
+      </div>
+      <span id="table"></span>
     </section>
-</body>
-
+    <div class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Developer</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="update-Id" class="col-sm-3 col-form-label">Id</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-Id" disabled>
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="update-firstName" class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-firstName">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="update-lastName" class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-lastName">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="update-email" class="col-sm-3 col-form-label">Email Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-email">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="update-contact" class="col-sm-3 col-form-label">Contact No</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-contact">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="update-about" class="col-sm-3 col-form-label">About</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="update-about">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick=updateDev()>Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+      <!-- Modal -->
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Create Developer</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="create-firstName" class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="create-firstName">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="create-lastName" class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="create-lastName">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="create-email" class="col-sm-3 col-form-label">Email Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="create-email">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="create-contact" class="col-sm-3 col-form-label">Contact No</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="create-contact">
+                </div>
+            </div>
+              <div class="form-group row">
+                <label for="create-about" class="col-sm-3 col-form-label">About</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="create-about">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick=createDev()>Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
 </html>
