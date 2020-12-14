@@ -40,8 +40,8 @@ function search(){
         },
         success: function (result) {
             var tableData = "";
-            for(var i = 0; i < result["data"].length; i++){
-                if (result["data"][i][searchBy].toLowerCase() == search.toLowerCase()){
+            for(var i = result["data"].length-1; i > 0; i--){
+                if (result["data"][i][searchBy].toLowerCase().includes(search.toLowerCase())){
                         tableData += "<table class='table table-responsive-md'><thead class='thead-light'><tr><th scope='col'>Id</th><th scope='col'>" + result["data"][i]['Id'] + "</th>";
                             if (window.location.pathname == "/admin.html"){
                                 tableData += "<th><i class='far fa-edit data-update' data-toggle='modal' data-target='#myModal' id='editButton" + result["data"][i]['Id'] + "'onclick=formFill(this.id)></i><i class='far fa-trash-alt data-delete' id='deleteButton" + result["data"][i]['Id'] + "' onclick=removeDev(this.id)></i></th>";
@@ -144,7 +144,15 @@ function updateDev(){
 }
 
 function createDev(){
+
+    if(document.getElementById("create-firstName").value == "" && document.getElementById("create-lastName").value == "" && document.getElementById("create-email").value == "" && document.getElementById("create-contact").value == "" && document.getElementById("create-about").value == ""){
+        document.querySelector("#addButton").removeAttribute("data-dismiss");
+        document.getElementById("addError").innerHTML = "Please fill atleast one field.";
+        return;
+    }
+
     var data = {"first_name": document.getElementById("create-firstName").value, "last_name": document.getElementById("create-lastName").value, "email": document.getElementById("create-email").value, "contact_no": document.getElementById("create-contact").value, "about": document.getElementById("create-about").value}
+    document.querySelector("#addButton").setAttribute("data-dismiss", "modal");
 
     $.ajax({
         url: "https://order.plumgoodness.com/postDevelopers",
@@ -177,7 +185,7 @@ if(window.location.pathname == "/admin.html" || window.location.pathname == "/us
         },
         success: function (result) {
             var tableData = "";
-            for(var i = 0; i < result["data"].length; i++){
+            for(var i = result["data"].length-1; i > 0; i--){
                 tableData += "<table class='table table-responsive-md'><thead class='thead-light'><tr><th scope='col'>Id</th><th scope='col'>" + result["data"][i]['Id'] + "</th>";
                     if (window.location.pathname == "/admin.html"){
                         tableData += "<th><i class='far fa-edit data-update' data-toggle='modal' data-target='#myModal' id='editButton" + result["data"][i]['Id'] + "'onclick=formFill(this.id)></i><i class='far fa-trash-alt data-delete' id='deleteButton" + result["data"][i]['Id'] + "' onclick=removeDev(this.id)></i></th>";

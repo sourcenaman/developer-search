@@ -37,15 +37,15 @@
     </nav>
     <section class="main-content">
       <div class="input-group mb-3">
-        <select class="custom-select col-4" id="searchselect" onchange="searchSelect(this)">
+        <select class="custom-select" id="searchselect" onchange="searchSelect(this)">
           <option name="Id" name="Id">Id</option>
           <option selected value="first_name">First Name</option>
           <option value="last_name">Last Name</option>
           <option value="email">Email Id</option>
           <option value="contact_no">Contact No.</option>
         </select>
-        <input type="text" class="form-control" id="search-input" placeholder="Search developer by First Name" />
-        <button class="btn btn-outline-secondary" type="submit" onclick="search()"><i class="navbar-brand fas fa-search search-icon"></i></button>
+        <input type="text" class="form-control" id="search-input" onkeyup="search()" placeholder="Search developer by First Name" />
+        <!-- <button class="btn btn-outline-secondary" type="submit" onclick="search()"><i class="navbar-brand fas fa-search search-icon"></i></button> -->
         <button class="btn btn-outline-success" type="submit" data-toggle='modal' data-target='#myModal2'><i class="fas fa-plus"></i></button>
       </div>
       <span id="table"></span>
@@ -146,8 +146,10 @@
                 </div>
             </div>
             <div class="modal-footer">
+              <span class="error" id="addError"></span>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success" data-dismiss="modal" onclick=createDev()>Add</button>
+              <button type="button" class="btn btn-success" id="addButton" data-dismiss="modal" onclick=createDev()>Add</button>
+              <span class="error" id="addError"></span>
             </div>
           </div>
         </div>

@@ -35,15 +35,15 @@
 </nav>
 <section class="main-content">
     <div class="input-group mb-3">
-        <select class="custom-select col-4" id="searchselect" onchange="searchSelect(this)">
+        <select class="custom-select" id="searchselect" onchange="searchSelect(this)">
             <option name="Id" name="Id">Id</option>
             <option selected value="first_name">First Name</option>
             <option value="last_name">Last Name</option>
             <option value="email">Email Id</option>
             <option value="contact_no">Contact No.</option>
         </select>
-        <input type="text" class="form-control" id="search-input" placeholder="Search developer by First Name">
-        <button class="btn btn-outline-secondary" type="submit" onclick="search()"><i class="navbar-brand fas fa-search search-icon"></i></button>
+        <input type="text" class="form-control" id="search-input" onkeyup="search()" placeholder="Search developer by First Name">
+        <!-- <button class="btn btn-outline-secondary" type="submit" onclick="search()"><i class="navbar-brand fas fa-search search-icon"></i></button> -->
     </div>
 <span id="table"></span>
 </section>

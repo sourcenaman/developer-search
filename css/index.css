@@ -48,7 +48,7 @@ body {
   width: 100%;
 }
 
-.login-form-error {
+.error {
   font-size: 12px;
   color: red;
 }
