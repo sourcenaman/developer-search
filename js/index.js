@@ -41,7 +41,7 @@ function search(){
         success: function (result) {
             var tableData = "";
             for(var i = 0; i < result["data"].length; i++){
-                if (result["data"][i][searchBy] == search){
+                if (result["data"][i][searchBy].toLowerCase() == search.toLowerCase()){
                         tableData += "<table class='table table-responsive-md'><thead class='thead-light'><tr><th scope='col'>Id</th><th scope='col'>" + result["data"][i]['Id'] + "</th>";
                             if (window.location.pathname == "/admin.html"){
                                 tableData += "<th><i class='far fa-edit data-update' data-toggle='modal' data-target='#myModal' id='editButton" + result["data"][i]['Id'] + "'onclick=formFill(this.id)></i><i class='far fa-trash-alt data-delete' id='deleteButton" + result["data"][i]['Id'] + "' onclick=removeDev(this.id)></i></th>";

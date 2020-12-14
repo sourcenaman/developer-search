@@ -37,7 +37,7 @@
     </nav>
     <section class="main-content">
       <div class="input-group mb-3">
-        <select class="custom-select" id="searchselect" onchange="searchSelect(this)">
+        <select class="custom-select col-4" id="searchselect" onchange="searchSelect(this)">
           <option name="Id" name="Id">Id</option>
           <option selected value="first_name">First Name</option>
           <option value="last_name">Last Name</option>
@@ -45,7 +45,7 @@
           <option value="contact_no">Contact No.</option>
         </select>
         <input type="text" class="form-control" id="search-input" placeholder="Search developer by First Name" />
-        <button class="btn btn-outline-secondary" type="submit" onclick="search()">Search</button>
+        <button class="btn btn-outline-secondary" type="submit" onclick="search()"><i class="navbar-brand fas fa-search search-icon"></i></button>
         <button class="btn btn-outline-success" type="submit" data-toggle='modal' data-target='#myModal2'><i class="fas fa-plus"></i></button>
       </div>
       <span id="table"></span>

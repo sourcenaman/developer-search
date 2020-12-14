@@ -22,6 +22,12 @@ body {
   color: blue;
 }
 
+.search-icon {
+  margin: 0px;
+  font-size: 15px;
+  padding: 0px;
+}
+
 /* Login form */
 
 .login-form {
